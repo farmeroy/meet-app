@@ -18,6 +18,11 @@
 .env.test.local
 .env.production.local
 
+# project notes and local text files
+user-stories.txt
+gherkin.txt
+
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
