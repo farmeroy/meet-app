@@ -2,9 +2,12 @@
 
 
    <h2>Feature 1: Filter Events by City</h2>
-   * Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities.
-   * Scenario 2: User should see a list of suggestions when they search for a city.
-   * Scenario 3: User can select a city from the suggested list.
+
+* Scenario 1: 
+  * When user hasn’t searched for a city, show upcoming events from all cities.
+  * Scenario 2: User should see a list of suggestions when they search for a city.
+  * Scenario 3: User can select a city from the suggested list.
+
   <h2>Feature 2: show/hide an event's details</h2>
 
 * Scenario 1:
@@ -22,7 +25,7 @@
   * When the user is finished reading the details
   * Then the user can click on the event to collapse it
 
-<h2>FEATURE 3: SPECIFY THE NUMBER OF EVENTS</h2>
+<h2>Feature 3: Specify The Number of Events</h2>
 
 * Scenario 1:
   * Given that the user hasn't specified a number
@@ -34,7 +37,7 @@
   * When thhe user enters a new number in the input
   * Then the user specified number of events is displayed
 
-<h2>FEATURE 4: USE THE APP OFFLINE</h2>
+<h2>Feature 4: Use the App Offline</h2>
 
 * Scenario 1: 
   * Given the user has accessed the app before
