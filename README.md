@@ -1,7 +1,7 @@
 <h1>Meet App</h1>
 An app that allows a user to look for events in a city.
 
-<h2>Feature 1: Filter Events by City</h2>
+<h3>Feature 1: Filter Events by City</h3>
 
 * Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities.
   * Given user hasn’t searched for any city
@@ -20,7 +20,7 @@ An app that allows a user to look for events in a city.
   * Then their city should be changed to that city (i.e., “Berlin, Germany”)
   * And the user should receive a list of upcoming events in that city
 
-<h2>Feature 2: show/hide an event's details</h2>
+<h3>Feature 2: show/hide an event's details</h3>
 
 * Scenario 1:
   * Given that the user hasn't interacted with the page
@@ -37,7 +37,7 @@ An app that allows a user to look for events in a city.
   * When the user is finished reading the details
   * Then the user can click on the event to collapse it
 
-<h2>Feature 3: Specify The Number of Events</h2>
+<h3>Feature 3: Specify The Number of Events</h3>
 
 * Scenario 1:
   * Given that the user hasn't specified a number
@@ -49,7 +49,7 @@ An app that allows a user to look for events in a city.
   * When thhe user enters a new number in the input
   * Then the user specified number of events is displayed
 
-<h2>Feature 4: Use the App Offline</h2>
+<h3>Feature 4: Use the App Offline</h3>
 
 * Scenario 1: 
   * Given the user has accessed the app before
@@ -61,9 +61,22 @@ An app that allows a user to look for events in a city.
   * When the user changes the settings
   * Then the app displays an error message
 
-FEATURE 5: DATA VISUALIZATION
+<h3>Feature 5: Data Visualization</h3>
 
 * Scenario 1: 
   * Given that the app is open
   * When the user requests an event chart
  
+<h2>User Stories</h2>
+
+<h3>Feature 2:</h3>
+  * As a user I should be able to expand or collapse event cards so I can see or hide its details.
+
+<h3>Feature 3:</h3>
+  * As a I user, I should be able to change the number of events that I want to see. If I don't care, the number should be 32.
+
+ <h3>Feature 4:</h3>
+  * As a user, I should be able to access the app offline, in case I am in a subway tunnel or have a break in connectivity. If I try to access new data, I should be shown an error so that I know it isn't possible until the connection is re-established.
+
+<h3>Feature 5:</h3>
+  * As I user, I should be able to see a chart of the number of events in a city, so I can quickly judge how active that city is. 
