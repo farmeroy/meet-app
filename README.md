@@ -1,7 +1,7 @@
 <h1>Meet App</h1>
+An app that allows a user to look for events in a city.
 
-
-   <h2>Feature 1: Filter Events by City</h2>
+<h2>Feature 1: Filter Events by City</h2>
 
 * Scenario 1: 
   * When user hasn’t searched for a city, show upcoming events from all cities.
