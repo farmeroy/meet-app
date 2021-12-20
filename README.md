@@ -8,7 +8,7 @@ An app that allows a user to look for events in a city.
   * Scenario 2: User should see a list of suggestions when they search for a city.
   * Scenario 3: User can select a city from the suggested list.
 
-  <h2>Feature 2: show/hide an event's details</h2>
+<h2>Feature 2: show/hide an event's details</h2>
 
 * Scenario 1:
   * Given that the user hasn't interacted with the page
