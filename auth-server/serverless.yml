@@ -18,7 +18,7 @@ service: auth-server
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
-frameworkVersion: '2'
+frameworkVersion: "2"
 
 provider:
   name: aws
@@ -50,11 +50,11 @@ provider:
 #                - "/*"
 
 # you can define service wide environment variables here
- environment:
+environment:
   CLIENT_ID: ${file(config.json):CLIENT_ID}
-  CLIENT_SECRET: {file(config.json):CLIENT_SECRET}
-  PROJECT_ID: {file(config.json):PROJECT_ID}
-  CALENDAR_ID: {file(config.json):CALENDAR_ID}
+  CLIENT_SECRET: { file(config.json):CLIENT_SECRET }
+  PROJECT_ID: { file(config.json):PROJECT_ID }
+  CALENDAR_ID: { file(config.json):CALENDAR_ID }
 
 # you can add packaging information here
 #package:
@@ -71,7 +71,6 @@ functions:
       - http:
           path: api/get-auth-url
           method: get
-
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
