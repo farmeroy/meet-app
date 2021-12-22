@@ -88,7 +88,7 @@
       getEvents.onclick = () => {
         const { access_token } = JSON.parse(accessTokenElement.innerText);
         const eventRequest = getCalendarEvents + access_token;
-        fetch(eventRequest)
+        fetch(eventRequest, {})
           .then((response) => {
             return response.json();
           })
