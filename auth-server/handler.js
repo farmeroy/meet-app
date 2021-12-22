@@ -13,7 +13,10 @@ const credentials = {
   auth_uri: "https://accounts.google.com/o/oauth2/auth",
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
-  redirect_uris: ["https://farmeroy.github.io/meet-app/", "http://localhost:8080/test-auth-server.html"],
+  redirect_uris: [
+    "https://farmeroy.github.io/meet-app/",
+    "http://localhost:8080/test-auth-server.html",
+  ],
   javascript_origins: ["https://farmeroy.github.io", "http://localhost:8080"],
 };
 
@@ -115,6 +118,8 @@ module.exports.getCalendarEvents = async (event) => {
         statusCode: 200,
         headers: {
           "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
         },
         body: JSON.stringify({ events: results.data.items }),
       };
