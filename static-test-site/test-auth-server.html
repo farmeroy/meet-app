@@ -44,7 +44,7 @@
       const resultElement = document.getElementById("result");
       const resultLink = document.getElementById("authURL");
       const getAuthURL =
-        "https://gcbvw0d1kd.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url";
+        "https://fw4pf3ipga.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url";
 
       getCodeElement.onclick = function () {
         fetch(getAuthURL)
@@ -63,7 +63,7 @@
       const getAccessToken = document.getElementById("getToken");
       const accessTokenElement = document.getElementById("accessToken");
       const getToken =
-        "https://gcbvw0d1kd.execute-api.eu-central-1.amazonaws.com/dev/api/token/";
+        "https://fw4pf3ipga.execute-api.eu-central-1.amazonaws.com/dev/api/token/";
       getAccessToken.onclick = () => {
         let code = codeValue.value;
         // if the auth code is not URL-encoded, encode it
@@ -83,7 +83,7 @@
       const getEvents = document.getElementById("getEvents");
       const events = document.getElementById("events");
       const getCalendarEvents =
-        "https://gcbvw0d1kd.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/";
+        "https://fw4pf3ipga.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/";
 
       getEvents.onclick = () => {
         const { access_token } = JSON.parse(accessTokenElement.innerText);
