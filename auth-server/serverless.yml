@@ -12,6 +12,9 @@ provider:
     CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
     PROJECT_ID: ${file(config.json):PROJECT_ID}
     CALENDAR_ID: ${file(config.json):CALENDAR_ID}
+  httpApi:
+    cors: true
+
 functions:
   getAuthURL:
     handler: handler.getAuthURL
@@ -31,9 +34,6 @@ functions:
       - http:
           path: api/get-events/{access_token}
           method: get
-          cors:
-            origin: "*"
-            maxAge: 86400
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
