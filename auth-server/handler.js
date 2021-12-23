@@ -88,7 +88,7 @@ module.exports.getCalendarEvents = async (event) => {
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
     client_secret,
-    redirect_uris[1]
+    redirect_uris[0]
   );
   // the param 'access_token' is taken from the response body of getAccessToken
   const access_token = decodeURIComponent(
