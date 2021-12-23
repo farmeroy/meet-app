@@ -85,14 +85,14 @@
       const getCalendarEvents =
         "https://fw4pf3ipga.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/";
 
-      getEvents.onclick = () => {
+      getEvents.onclick = function () {
         const { access_token } = JSON.parse(accessTokenElement.innerText);
         const eventRequest = getCalendarEvents + access_token;
         fetch(eventRequest)
-          .then((response) => {
+          .then(function (response) {
             return response.json();
           })
-          .then((json) => {
+          .then(function (json) {
             events.innerText = JSON.stringify(json, null, 2);
           });
       };
