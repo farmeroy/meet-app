@@ -32,7 +32,8 @@ describe("<Event /> component", () => {
     expect(EventWrapper.find(".eventDetails")).toHaveLength(1);
   });
 
-  test("renders details of event correctly", () => {
-
-  })
+  test("renders list of details of event", () => {
+    EventWrapper.setState({ isCollapsed: false });
+    expect(EventWrapper.find(".eventDetails li")).toHaveLength(3);
+  });
 });
