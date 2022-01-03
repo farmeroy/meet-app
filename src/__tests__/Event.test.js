@@ -49,4 +49,11 @@ describe("<Event /> component", () => {
     expect(EventWrapper.find(".location").text()).toBe(eventDetails.location);
     expect(EventWrapper.find(".startTime").text()).toBe(eventDetails.startTime);
   });
+
+  test('If the event is not collapsed, when the user clicks, collapse event', () => {
+    EventWrapper.setState({ isCollapsed: false });
+    EventWrapper.find(".Event").simulate("click");
+    expect(EventWrapper.state("isCollapsed")).toBe(true);
+
+  })
 });
