@@ -11,7 +11,13 @@ class CitySearch extends Component {
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
-    this.setState({ query: value, suggestions, });
+    this.setState({ query: value, suggestions });
+  };
+
+  itemClickHandler = (suggestion) => {
+    this.setState({
+      query: suggestion,
+    });
   };
 
   render() {
@@ -25,7 +31,12 @@ class CitySearch extends Component {
         />
         <ul className="suggestions">
           {this.state.suggestions.map((suggestion) => (
-            <li key={suggestion}>{suggestion}</li>
+            <li
+              key={suggestion}
+              onClick={() => this.itemClickHandler(suggestion)}
+            >
+              {suggestion}
+            </li>
           ))}
           <li key="all">
             <b>See all cities</b>
