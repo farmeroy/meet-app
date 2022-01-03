@@ -27,9 +27,9 @@ describe("<Event /> component", () => {
     expect(EventWrapper.state("isCollapsed")).toBe(true);
   });
 
-  test("when user clicks on a collapsed event, isCollapsed is set to false", () => {
+  test("when user clicks on details button, isCollapsed is set to false", () => {
     EventWrapper.setState({ isCollapsed: true });
-    EventWrapper.find(".Event").simulate("click");
+    EventWrapper.find(".showDetails").simulate("click");
     expect(EventWrapper.state("isCollapsed")).toBe(false);
   });
 
@@ -52,7 +52,7 @@ describe("<Event /> component", () => {
 
   test('If the event is not collapsed, when the user clicks, collapse event', () => {
     EventWrapper.setState({ isCollapsed: false });
-    EventWrapper.find(".Event").simulate("click");
+    EventWrapper.find(".showDetails").simulate("click");
     expect(EventWrapper.state("isCollapsed")).toBe(true);
 
   })
