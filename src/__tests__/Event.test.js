@@ -5,8 +5,9 @@ import { mockData } from "../mock-data";
 
 describe("<Event /> component", () => {
   let EventWrapper;
+  const eventDetails = mockData[0];
   beforeAll(() => {
-    EventWrapper = shallow(<Event eventData={mockData[0]} />);
+    EventWrapper = shallow(<Event eventData={eventDetails} />);
   });
 
   test("render event title", () => {
@@ -36,4 +37,9 @@ describe("<Event /> component", () => {
     EventWrapper.setState({ isCollapsed: false });
     expect(EventWrapper.find(".eventDetails li")).toHaveLength(3);
   });
+
+  test('renders details of event correctly', () => {
+    EventWrapper.setState({ isCollapsed: false });
+    
+  })
 });
