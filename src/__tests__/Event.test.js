@@ -43,11 +43,10 @@ describe("<Event /> component", () => {
     expect(EventWrapper.find(".eventDetails li")).toHaveLength(3);
   });
 
-  test('renders details of event correctly', () => {
+  test("renders details of event correctly", () => {
     EventWrapper.setState({ isCollapsed: false });
-    const detailsElements = EventWrapper.find('li').text();
-    for (let i =0; i < detailsElements.length; i++ ) {
-      expect
-    }
-  })
+    expect(EventWrapper.find(".description").text()).toBe(eventDetails.description);
+    expect(EventWrapper.find(".location").text()).toBe(eventDetails.location);
+    expect(EventWrapper.find(".startTime").text()).toBe(eventDetails.startTime);
+  });
 });
