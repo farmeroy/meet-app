@@ -18,7 +18,7 @@ describe("<Event /> component", () => {
   });
 
   test('when component first loads, event state is collapsed', () => {
-    expect(EventWrapper.state('isCollapsed')).toBe('true');
+    expect(EventWrapper.state('isCollapsed')).toBe(true);
   });
 
 });
