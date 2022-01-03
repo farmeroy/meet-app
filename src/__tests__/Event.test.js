@@ -5,7 +5,12 @@ import { mockData } from "../mock-data";
 
 describe("<Event /> component", () => {
   let EventWrapper;
-  const eventDetails = mockData[0];
+  const eventDetails = {
+    summary: mockData[0].summary,
+    description: mockData[0].description,
+    location: mockData[0].location,
+    startTime: mockData[0].start.dateTime,
+  };
   beforeAll(() => {
     EventWrapper = shallow(<Event eventData={eventDetails} />);
   });
@@ -40,6 +45,9 @@ describe("<Event /> component", () => {
 
   test('renders details of event correctly', () => {
     EventWrapper.setState({ isCollapsed: false });
-    
+    const detailsElements = EventWrapper.find('li').text();
+    for (let i =0; i < detailsElements.length; i++ ) {
+      expect
+    }
   })
 });
