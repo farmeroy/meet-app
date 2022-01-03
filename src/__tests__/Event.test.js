@@ -15,6 +15,10 @@ describe("<Event /> component", () => {
 
   test("renders summary text correctly", () => {
       expect(EventWrapper.find('.summary').text()).toBe(mockData[0].summary)
-  })
+  });
+
+  test('when component first loads, event state is collapsed', () => {
+    expect(EventWrapper.state('isCollapsed')).toBe('true');
+  });
 
 });
