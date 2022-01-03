@@ -80,5 +80,4 @@ let mockData = [
 ];
 
 mockData = JSON.parse(JSON.stringify(mockData));
-
 export { mockData };
