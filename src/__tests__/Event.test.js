@@ -27,6 +27,12 @@ describe("<Event /> component", () => {
     expect(EventWrapper.state("isCollapsed")).toBe(true);
   });
 
+  test("when an event is collapsed, display event summary and location", () => {
+    EventWrapper.setState({ isCollapsed: true });
+    expect(EventWrapper.find(".summary").text()).toBe(eventDetails.summary);
+    expect(EventWrapper.find(".location").text()).toBe(eventDetails.location);
+  });
+
   test("when user clicks on details button, isCollapsed is set to false", () => {
     EventWrapper.setState({ isCollapsed: true });
     EventWrapper.find(".showDetails").simulate("click");
@@ -40,20 +46,20 @@ describe("<Event /> component", () => {
 
   test("renders list of details of event", () => {
     EventWrapper.setState({ isCollapsed: false });
-    expect(EventWrapper.find(".eventDetails li")).toHaveLength(3);
+    expect(EventWrapper.find(".eventDetails li")).toHaveLength(2);
   });
 
   test("renders details of event correctly", () => {
     EventWrapper.setState({ isCollapsed: false });
-    expect(EventWrapper.find(".description").text()).toBe(eventDetails.description);
-    expect(EventWrapper.find(".location").text()).toBe(eventDetails.location);
+    expect(EventWrapper.find(".description").text()).toBe(
+      eventDetails.description
+    );
     expect(EventWrapper.find(".startTime").text()).toBe(eventDetails.startTime);
   });
 
-  test('If the event is not collapsed, when the user clicks, collapse event', () => {
+  test("If the event is not collapsed, when the user clicks, collapse event", () => {
     EventWrapper.setState({ isCollapsed: false });
     EventWrapper.find(".showDetails").simulate("click");
     expect(EventWrapper.state("isCollapsed")).toBe(true);
-
-  })
+  });
 });
