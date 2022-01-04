@@ -4,8 +4,8 @@ import App from "../App";
 import EventList from "../EventList";
 import CitySearch from "../CitySearch";
 import NumberOfEvents from "../NumberOfEvents";
-import { mockData } from '../mock-data';
-import {extractLocations} from '../api';
+import { mockData } from "../mock-data";
+import { extractLocations, getEvents } from "../api";
 
 describe("<App /> component", () => {
   let AppWrapper;
@@ -27,7 +27,6 @@ describe("<App /> component", () => {
 });
 
 describe("<App /> integration", () => {
-
   test('App passes "events" state as a prop to EventList', () => {
     const AppWrapper = mount(<App />);
     const AppEventsState = AppWrapper.state("events");
@@ -38,26 +37,28 @@ describe("<App /> integration", () => {
 
   test('App passes "locations" state as a prop to CitySearch', () => {
     const AppWrapper = mount(<App />);
-    const AppLocationsState = AppWrapper.state('locations');
+    const AppLocationsState = AppWrapper.state("locations");
     expect(AppLocationsState).not.toEqual(undefined);
-    expect(AppWrapper.find(CitySearch).props().locations).toEqual(AppLocationsState);
+    expect(AppWrapper.find(CitySearch).props().locations).toEqual(
+      AppLocationsState
+    );
     AppWrapper.unmount();
   });
 
-  test('get list of events matching the city selected by the user', async () => {
+  test("get list of events matching the city selected by the user", async () => {
     const AppWrapper = mount(<App />);
     const CitySearchWrapper = AppWrapper.find(CitySearch);
     const locations = extractLocations(mockData);
-    CitySearchWrapper.setState({suggestions: locations});
-    const suggestions = CitySearchWrapper.state('suggestions');
-    const selectedIndex = Math.floor(Math.random() * (suggestions.length));
+    CitySearchWrapper.setState({ suggestions: locations });
+    const suggestions = CitySearchWrapper.state("suggestions");
+    const selectedIndex = Math.floor(Math.random() * (suggestions.length - 1));
     const selectedCity = suggestions[selectedIndex];
-    await CitySearchWrapper.instance().handleItemClicked(selectedCity);
+    await CitySearchWrapper.instance().itemClickHandler(selectedCity);
     const allEvents = await getEvents();
-    const eventsToShow = allEvents.filter(event => event.location === selectedCity);
-    expect(AppWrapper.state('events')).toEqual(eventsToShow);
+    const eventsToShow = allEvents.filter(
+      (event) => event.location === selectedCity
+    );
+    expect(AppWrapper.state("events")).toEqual(eventsToShow);
     AppWrapper.unmount();
-
   });
-
 });
