@@ -15,12 +15,18 @@ class Event extends Component {
   render() {
     const eventData = this.props.eventData;
     return (
-      <div className="Event" >
+      <div className="Event">
         <h1 className="summary">{eventData.summary}</h1>
-        <button className="showDetails" onClick={() => this.onClickHandler()}>Details</button>
-        {!this.state.isCollapsed && <ul className="eventDetails">
-          <li className="description">{eventData.description}</li><li className="location">{eventData.location}</li><li className="startTime">{eventData.startTime}</li>
-        </ul>}
+        <p className="location">{eventData.location}</p>
+        <button className="showDetails" onClick={() => this.onClickHandler()}>
+          Details
+        </button>
+        {!this.state.isCollapsed && (
+          <ul className="eventDetails">
+            <li className="description">{eventData.description}</li>
+            <li className="startTime">{eventData.startTime}</li>
+          </ul>
+        )}
       </div>
     );
   }
