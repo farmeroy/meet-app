@@ -12,7 +12,7 @@ describe("<Event /> component", () => {
     startTime: mockData[0].start.dateTime,
   };
   beforeAll(() => {
-    EventWrapper = shallow(<Event eventData={eventDetails} />);
+    EventWrapper = shallow(<Event event={eventDetails} />);
   });
 
   test("render event title", () => {
