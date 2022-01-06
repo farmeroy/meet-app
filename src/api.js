@@ -63,9 +63,10 @@ export const getEvents = async () => {
     NProgress.done();
     return mockData;
   }
+    
   const token = await getAccessToken();
   if (token) {
-    removeQuery();
+    // removeQuery();
     const url =
       "https://fw4pf3ipga.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/" +
       token;
