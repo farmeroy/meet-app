@@ -2,11 +2,12 @@ import React from 'react';
 import {shallow } from 'enzyme';
 import NumberOfEvents from '../NumberOfEvents';
 
-describe('<NumberOfEvents /> component', () => {
+describe('<NumberOfEvents  /> component', () => {
+
   let NumberOfEventsWrapper;
   
   beforeAll(()=>{
-    NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+    NumberOfEventsWrapper = shallow(<NumberOfEvents updateNumber={() => {}} />);
   });
 
   test('render number input', () => {
