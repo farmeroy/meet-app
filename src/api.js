@@ -66,7 +66,7 @@ export const getEvents = async () => {
     
   const token = await getAccessToken();
   if (token) {
-    // removeQuery();
+    removeQuery();
     const url =
       "https://fw4pf3ipga.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/" +
       token;
@@ -81,7 +81,7 @@ export const getEvents = async () => {
   }
 };
 
-export const getAccessToken = async () => {
+const getAccessToken = async () => {
   const accessToken = localStorage.getItem("access_token");
   const tokenCheck = accessToken && (await checkToken(accessToken));
   if (!accessToken || tokenCheck.error) {
@@ -93,6 +93,7 @@ export const getAccessToken = async () => {
         "https://fw4pf3ipga.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url"
       );
       const { authURL } = results.data;
+      console.log(authURL);
       return (window.location.href = authURL);
     }
     return code && getToken(code);
