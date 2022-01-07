@@ -5,10 +5,12 @@ class NumberOfEvents extends Component {
     numberInputValue: 32,
   };
 
+
   onChangeHandler = (event) => {
     this.setState({
       numberInputValue: event.target.value,
     });
+    this.props.updateNumber(event.target.value);
   };
 
   render() {
