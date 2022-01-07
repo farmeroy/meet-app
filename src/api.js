@@ -92,6 +92,7 @@ const getAccessToken = async () => {
       const results = await axios.get(
         "https://fw4pf3ipga.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url"
       );
+      console.log(results.data);
       const { authURL } = results.data;
       console.log(authURL);
       return (window.location.href = authURL);
