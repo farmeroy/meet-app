@@ -87,9 +87,9 @@ describe("<App /> integration", () => {
     AppWrapper.setState({  'eventsNumber': 2})
     await AppWrapper.instance().updateEventsNumber(1);
     expect(AppWrapper.state('events').length).toEqual(1)
-    // these tests are not working as expected
+    // AppWrapper.update();
     // const EventListWrapper = AppWrapper.find(EventList);
-    // expect(EventListWrapper.find(Event).length).toBe(1); 
+    // expect(EventListWrapper.find(Event).hostNodes()).toHaveLength(1); 
     AppWrapper.unmount();
   })
 
