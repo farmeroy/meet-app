@@ -18,13 +18,13 @@ class Event extends Component {
       <div className="Event">
         <h1 className="summary">{eventData.summary}</h1>
         <p className="location">{eventData.location}</p>
+            <p className="startTime">{eventData.start.dateTime}</p>
         <button className="details-btn" onClick={() => this.onClickHandler()}>
           Details
         </button>
         {!this.state.isCollapsed && (
           <ul className="eventDetails">
             <li className="description">{eventData.description}</li>
-            <li className="startTime">{eventData.startTime}</li>
           </ul>
         )}
       </div>
