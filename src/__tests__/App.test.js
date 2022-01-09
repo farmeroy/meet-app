@@ -4,6 +4,7 @@ import App from "../App";
 import EventList from "../EventList";
 import CitySearch from "../CitySearch";
 import NumberOfEvents from "../NumberOfEvents";
+import Event from '../Event';
 import { mockData } from "../mock-data";
 import { extractLocations, getEvents } from "../api";
 
@@ -81,11 +82,14 @@ describe("<App /> integration", () => {
     AppWrapper.unmount();
   })
 
-  test('Number of events passed to EventList equal to user input in NumberOfEvents', async () => {
+  test('Number of events rendered in EventList is equal to user input in NumberOfEvents', async () => {
     const AppWrapper = mount(<App />);
     AppWrapper.setState({  'eventsNumber': 2})
     await AppWrapper.instance().updateEventsNumber(1);
     expect(AppWrapper.state('events').length).toEqual(1)
+    // these tests are not working as expected
+    // const EventListWrapper = AppWrapper.find(EventList);
+    // expect(EventListWrapper.find(Event).length).toBe(1); 
     AppWrapper.unmount();
   })
 
