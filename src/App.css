@@ -106,6 +106,8 @@ input[type="number"] {
 
 .Event h1 {
   color: var(--goldColor);
+  display: flex;
+  flex-direction: column;
 }
 
 .eventDetails {
@@ -113,9 +115,7 @@ input[type="number"] {
 
 .details-btn {
   background-color: var(--goldColor);
-  float: right;
-  right: 5px;
-  bottom: 5px;
+  margin-left: 80%;
   padding: 12px;
   border-radius: 6px;
   border: none;
