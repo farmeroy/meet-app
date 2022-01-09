@@ -9,7 +9,7 @@ describe("<Event /> component", () => {
     summary: mockData[0].summary,
     description: mockData[0].description,
     location: mockData[0].location,
-    startTime: mockData[0].start.dateTime,
+    startTime: new Date(mockData[0].start.dateTime),
   };
   beforeAll(() => {
     EventWrapper = shallow(<Event event={mockData[0]} />);
@@ -54,7 +54,15 @@ describe("<Event /> component", () => {
     expect(EventWrapper.find(".description").text()).toBe(
       eventDetails.description
     );
-    expect(EventWrapper.find(".startTime").text()).toBe(eventDetails.startTime);
+    expect(EventWrapper.find(".startTime").text()).toBe(`${eventDetails.startTime.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+    })} ${eventDetails.startTime.toLocaleDateString("en-GB", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })}`);
   });
 
   test("If the event is not collapsed, when the user clicks, collapse event", () => {
