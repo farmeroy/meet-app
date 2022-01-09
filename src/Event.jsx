@@ -13,23 +13,38 @@ class Event extends Component {
   };
 
   render() {
-    const {summary, location, start: startTime, description} = this.props.event;
-    const eventDate = new Date(startTime.dateTime); 
-    const time = eventDate.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-    const date = eventDate.toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const {
+      summary,
+      location,
+      start: startTime,
+      description,
+    } = this.props.event;
+    const eventDate = new Date(startTime.dateTime);
+    const time = eventDate.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    const date = eventDate.toLocaleDateString("en-GB", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
     return (
       <div className="Event">
         <h1 className="summary">{summary}</h1>
         <p className="location">{location}</p>
-            <p className="startTime">{time} {date}</p>
-        <button className="details-btn" onClick={() => this.onClickHandler()}>
-          Details
-        </button>
+        <p className="startTime">
+          {time} {date}
+        </p>
         {!this.state.isCollapsed && (
           <ul className="eventDetails">
             <li className="description">{description}</li>
           </ul>
         )}
+        <button className="details-btn" onClick={() => this.onClickHandler()}>
+          Details
+        </button>
       </div>
     );
   }
