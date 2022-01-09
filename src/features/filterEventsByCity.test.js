@@ -1,4 +1,10 @@
 import { loadFeature, defineFeature } from "jest-cucumber";
+import { mount, shallow } from 'enzyme';
+import { mockData } from '../mock-data';
+import { extractLocations } from '../api';
+import App from '../App';
+import CitySearch from '../CitySearch';
+
 // loadFeature() expects to load a feature from the root folder
 const feature = loadFeature("./src/features/filterEventsByCity.feature");
 
@@ -9,10 +15,15 @@ defineFeature(feature, (test) => {
     then,
   }) => {
     given("user hasn’t searched for any city", () => {});
+    let AppWrapper;
+    when("the user opens the app", () => {
+      AppWrapper = mount(<App />);
+    });
 
-    when("the user opens the app", () => {});
-
-    then("the user should see a list of all upcoming events", () => {});
+    then("the user should see a list of all upcoming events", () => {
+      AppWrapper.update();
+      expect(AppWrapper.find('.Event')).toHaveLength(mockData.length);
+    });
   });
 
   test("User should see a list of suggestions when they search for a city.", ({
@@ -20,7 +31,11 @@ defineFeature(feature, (test) => {
     when,
     then,
   }) => {
-    given("the main page is open", () => {});
+    let CitySearchWrapper;
+    let locations = extractLocations(mockData)
+    given("the main page is open", () => {
+      CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
+    });
 
     when("user starts typing in the city textbox", () => {});
 
