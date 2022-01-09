@@ -12,7 +12,7 @@ describe("<Event /> component", () => {
     startTime: mockData[0].start.dateTime,
   };
   beforeAll(() => {
-    EventWrapper = shallow(<Event event={eventDetails} />);
+    EventWrapper = shallow(<Event event={mockData[0]} />);
   });
 
   test("render event title", () => {
@@ -46,7 +46,7 @@ describe("<Event /> component", () => {
 
   test("renders list of details of event", () => {
     EventWrapper.setState({ isCollapsed: false });
-    expect(EventWrapper.find(".eventDetails li")).toHaveLength(2);
+    expect(EventWrapper.find(".eventDetails li")).toHaveLength(1);
   });
 
   test("renders details of event correctly", () => {
