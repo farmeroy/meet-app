@@ -18,7 +18,7 @@ class Event extends Component {
       <div className="Event">
         <h1 className="summary">{eventData.summary}</h1>
         <p className="location">{eventData.location}</p>
-        <button className="showDetails" onClick={() => this.onClickHandler()}>
+        <button className="details-btn" onClick={() => this.onClickHandler()}>
           Details
         </button>
         {!this.state.isCollapsed && (
