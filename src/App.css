@@ -91,6 +91,7 @@ input[type="number"] {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: auto;
 }
 .Event {
   padding: 2rem 2rem 3rem;
@@ -100,6 +101,7 @@ input[type="number"] {
   border-radius: 12px;
   background-color: var(--cardColor);
   color: var(--textColor);
+  height: 90%;
 }
 
 .Event h1 {
