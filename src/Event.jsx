@@ -32,6 +32,7 @@ class Event extends Component {
     });
     return (
       <div className="Event">
+        <div>
         <h1 className="summary">{summary}</h1>
         <p className="location">{location}</p>
         <p className="startTime">
@@ -42,6 +43,7 @@ class Event extends Component {
             <li className="description">{description}</li>
           </ul>
         )}
+        </div>
         <button className="details-btn" onClick={() => this.onClickHandler()}>
           Details
         </button>
