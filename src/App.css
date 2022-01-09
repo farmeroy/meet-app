@@ -1,4 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+:root {
+  --backgroundColor: #71dfe7;
+  --textColor: #c2fff9;
+  --cardColor: #009dae;
+  --goldColor: #ffe652;
+}
+
+body {
+  background-color: var(--backgroundColor);
+}
 .App {
   text-align: center;
   padding: 2% 5%;
@@ -76,27 +87,43 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
+.EventList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .Event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
+  padding: 2rem 2rem 3rem;
+  margin: 10px;
+  width: 90vw;
   text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
+  border-radius: 12px;
+  background-color: var(--cardColor);
+  color: var(--textColor);
+}
+
+.Event h1 {
+  color: var(--goldColor);
+}
+
+.eventDetails {
 }
 
 .details-btn {
-  position: absolute;
+  background-color: var(--goldColor);
+  float: right;
   right: 5px;
   bottom: 5px;
-  padding: 5px 8px;
+  padding: 12px;
   border-radius: 6px;
+  border: none;
   outline: none;
   cursor: pointer;
+  align-self: flex-end;
 }
 
 .details-btn:hover {
-  opacity: .8;
+  opacity: 0.9;
 }
 
 .name {
@@ -202,7 +229,11 @@ input[type="number"] {
   font-family: "Roboto";
 }
 
-
+@media only screen and (min-width: 768px) {
+  .Event {
+    width: 40vw;
+  }
+}
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
