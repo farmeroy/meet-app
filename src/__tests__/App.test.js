@@ -81,13 +81,11 @@ describe("<App /> integration", () => {
     AppWrapper.unmount();
   })
 
-  test('Number of events rendered in EventList is equal to user input in NumberOfEvents', async () => {
+  test('Number of events passed to EventList equal to user input in NumberOfEvents', async () => {
     const AppWrapper = mount(<App />);
-    AppWrapper.setState({'selectedLocation': 'all', 'eventsNumber': 2})
+    AppWrapper.setState({  'eventsNumber': 2})
     await AppWrapper.instance().updateEventsNumber(1);
     expect(AppWrapper.state('events').length).toEqual(1)
-    const EventListWrapper = AppWrapper.find(EventList);
-    // expect(EventListWrapper.find(Event)).toHaveLength(1); 
     AppWrapper.unmount();
   })
 
