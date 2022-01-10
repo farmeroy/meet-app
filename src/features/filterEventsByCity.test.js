@@ -1,9 +1,9 @@
 import { loadFeature, defineFeature } from "jest-cucumber";
-import { mount, shallow } from 'enzyme';
-import { mockData } from '../mock-data';
-import { extractLocations } from '../api';
-import App from '../App';
-import CitySearch from '../CitySearch';
+import { mount, shallow } from "enzyme";
+import { mockData } from "../mock-data";
+import { extractLocations } from "../api";
+import App from "../App";
+import CitySearch from "../CitySearch";
 
 // loadFeature() expects to load a feature from the root folder
 const feature = loadFeature("./src/features/filterEventsByCity.feature");
@@ -22,7 +22,7 @@ defineFeature(feature, (test) => {
 
     then("the user should see a list of all upcoming events", () => {
       AppWrapper.update();
-      expect(AppWrapper.find('.Event')).toHaveLength(mockData.length);
+      expect(AppWrapper.find(".Event")).toHaveLength(mockData.length);
     });
   });
 
@@ -32,16 +32,24 @@ defineFeature(feature, (test) => {
     then,
   }) => {
     let CitySearchWrapper;
-    let locations = extractLocations(mockData)
+    let locations = extractLocations(mockData);
     given("the main page is open", () => {
-      CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
+      CitySearchWrapper = shallow(
+        <CitySearch updateEvents={() => {}} locations={locations} />
+      );
     });
 
-    when("user starts typing in the city textbox", () => {});
+    when("user starts typing in the city textbox", () => {
+      CitySearchWrapper.find(".city").simulate("change", {
+        target: { value: "Berlin" },
+      });
+    });
 
     then(
       "the user should see a list of cities (suggestions) that match what they’ve typed",
-      () => {}
+      () => {
+          expect(CitySearchWrapper.find('.suggestions li')).toHaveLength(2);
+      }
     );
   });
 
