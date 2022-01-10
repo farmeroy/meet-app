@@ -5,7 +5,11 @@ describe("show/hide an event's details'", () => {
   let page;
   beforeAll(async () => {
     jest.setTimeout(30000);
-    browser = await puppeteer.launch();
+    browser = await puppeteer.launch({
+      // headless: false,
+      // slowMo: 250,
+      // ignoreDefaultArgs: ['--disable-extensions']
+    });
     page = await browser.newPage();
     await page.goto("http://localhost:3000/");
     // wait for the node with class name 'Event' to load
@@ -28,4 +32,9 @@ describe("show/hide an event's details'", () => {
     expect(eventDetails).toBeDefined();
   });
   
+  test('User can collapse an event to hide its details', async () => {
+    await page.click('.Event .details-btn');
+    const eventDetails = await page.$('.Event .eventDetails');
+    expect(eventDetails).toBeNull();
+  })
 });
