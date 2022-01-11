@@ -3,7 +3,6 @@ import { mount, shallow } from "enzyme";
 import { mockData } from "../mock-data";
 import App from "../App";
 import Event from '../Event';
-import EventList from "../EventList";
 
 const feature = loadFeature("./src/features/showHideAnEventsDetails.feature");
 
