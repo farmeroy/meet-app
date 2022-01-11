@@ -1,7 +1,8 @@
 import { loadFeature, defineFeature } from "jest-cucumber";
 import { mount, shallow } from "enzyme";
-import { mockData } from "../api";
+import { mockData } from "../mock-data";
 import App from "../App";
+import Event from '../Event';
 import EventList from "../EventList";
 
 const feature = loadFeature("./src/features/showHideAnEventsDetails.feature");
@@ -29,11 +30,19 @@ defineFeature(feature, (test) => {
     when,
     then,
   }) => {
-    given("that the user is interested in an event", () => {});
+    let EventWrapper; 
+    let event = mockData[0];
+    given("that the user is interested in an event", () => {
+      EventWrapper = shallow(<Event event={event} />)
+    });
 
-    when("the user clicks on the event", () => {});
+    when("the user clicks on the event", () => {
+      EventWrapper.find('.details-btn').simulate('click');
+    });
 
-    then("the event element expands and shows its details", () => {});
+    then("the event element expands and shows its details", () => {
+      expect(EventWrapper.find('.eventDetails')).toHaveLength(1);
+    });
   });
 
   test("The user can close an event's details by clicking on it", ({
