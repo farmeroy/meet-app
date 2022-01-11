@@ -1,19 +1,24 @@
 import { loadFeature, defineFeature } from "jest-cucumber";
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 import { mockData } from "../mock-data";
 import App from "../App";
-import Event from "../Event";
-import EventList from "../EventList";
 
 const feature = loadFeature("./src/features/specifyNumberOfEvents.feature");
 
 defineFeature(feature, (test) => {
   test("32 events are displayed by default", ({ given, when, then }) => {
+    let AppWrapper;
+    const defaultEventsNumber = mockData.length < 32 ? mockData.length : 32;
     given("that the user hasn't specified a number", () => {});
 
-    when("the user views the page", () => {});
+    when("the user views the page", () => {
+      AppWrapper = mount(<App />);
+    });
 
-    then(/^(\d+) event elements are displayed$/, (arg0) => {});
+    then("32 event elements are displayed", () => {
+      AppWrapper.update();
+      expect(AppWrapper.find('.Event')).toHaveLength(defaultEventsNumber);
+    });
   });
 
   test("The user can change the number of events displayed", ({
@@ -21,10 +26,16 @@ defineFeature(feature, (test) => {
     when,
     then,
   }) => {
+    let AppWrapper = mount(<App />);
     given("that the user wants to see a different number of events", () => {});
 
-    when("the user enters a new number in the input", () => {});
-
-    then("the user specified number of events is displayed", () => {});
+    when("the user enters a new number in the input", () => {
+      AppWrapper.find('.numberInput').simulate('change', {target: {value: 1 }
+    });
   });
+    then("the user specified number of events is displayed", () => {
+      AppWrapper.update();
+      expect(AppWrapper.find('.Event')).toHaveLength(1);
+    });
+});
 });
