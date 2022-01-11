@@ -50,10 +50,16 @@ defineFeature(feature, (test) => {
     when,
     then,
   }) => {
-    given("that the event element is expanded", () => {});
-
+    let EventWrapper = shallow(<Event event={mockData[0]} />);
+    given("that the event element is expanded", () => {
+      EventWrapper.setState({'isCollapsed': false});
+    });
+      
     when("the user is finished reading the details", () => {});
 
-    then("the user can click on the event to collapse it", () => {});
+    then("the user can click on the event to collapse it", () => {
+      EventWrapper.find('.details-btn').simulate('click');
+      expect(EventWrapper.find('.eventDetails')).toHaveLength(0);
+    });
   });
 });
