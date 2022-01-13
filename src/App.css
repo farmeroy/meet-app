@@ -3,9 +3,9 @@
 :root {
   --backgroundColor: #6998AB;
   --textColor: #1A374D;
-  --cardColor:  #B1D0E0;
+  --buttonColor:  #B1D0E0;
   --titleColor: #1A374D;
-  --buttonColor: #FFEFEF;
+  --cardColor: #ECF4F3;
 }
 
 body {
