@@ -92,6 +92,14 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
+.suggestion-btn {
+  border: none;
+  background-color: #eee;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
 .EventList {
   display: flex;
   flex-wrap: wrap;
