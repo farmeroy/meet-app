@@ -104,7 +104,7 @@ module.exports.getCalendarEvents = async (event) => {
         timeMin: new Date().toISOString(),
         singleEvents: true,
         orderBy: "startTime",
-        maxResults: 64,
+        maxResults: 32,
       },
       (error, response) => {
         if (error) {
