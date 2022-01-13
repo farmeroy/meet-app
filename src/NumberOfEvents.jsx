@@ -8,9 +8,6 @@ class NumberOfEvents extends Component {
 
   onChangeHandler = (event) => {
     let num = event.target.value;
-    if (num.length === 0) {
-      num = 1;
-    }
     if (num < 0) {
       this.setState({
         numberInputValue: 0,
