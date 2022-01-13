@@ -48,6 +48,10 @@ input[type="number"] {
   height: 38px;
 }
 
+.numberInput {
+  width:4rem;
+  margin: 1rem;
+}
 .city {
   width: 250px;
 }
@@ -240,6 +244,12 @@ input[type="number"] {
   font-family: "Roboto";
 }
 
+.title {
+  color: var(--titleColor);
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
 @media only screen and (min-width: 768px) {
   .Event {
     width: 40vw;
