@@ -51,6 +51,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1 className="title">Meet</h1>
+        <p>Find newbie developer events in your city and meet other learners!</p>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
