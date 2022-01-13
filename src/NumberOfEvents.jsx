@@ -3,7 +3,7 @@ import { ErrorAlert } from "./Alert";
 
 class NumberOfEvents extends Component {
   state = {
-    numberInputValue: 32,
+    numberInputValue: 16,
   };
 
   onChangeHandler = (event) => {
@@ -17,12 +17,12 @@ class NumberOfEvents extends Component {
         infoText: "Please enter a number greater than zero",
       });
       this.props.updateNumber(0);
-    } else if (num > 64) {
+    } else if (num > 32) {
       this.setState({
-        numberInputValue: 64,
+        numberInputValue: 32,
         infoText: "This app will display maximum 64 events",
       });
-      this.props.updateNumber(64);
+      this.props.updateNumber(32);
     } else {
       this.setState({
         numberInputValue: num,
