@@ -20,7 +20,7 @@ class NumberOfEvents extends Component {
     } else if (num > 32) {
       this.setState({
         numberInputValue: 32,
-        infoText: "This app will display maximum 64 events",
+        infoText: "This app will display maximum 32 events",
       });
       this.props.updateNumber(32);
     } else {
