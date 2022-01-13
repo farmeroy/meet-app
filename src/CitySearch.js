@@ -6,7 +6,7 @@ class CitySearch extends Component {
     query: "",
     suggestions: [],
     showSuggestions: undefined,
-    infoText: ''
+    infoText: "",
   };
 
   inputChangeHandler = (event) => {
@@ -36,16 +36,24 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
+
         <InfoAlert text={this.state.infoText} />
-        <input
-          type="text"
-          className="city"
-          value={this.state.query}
-          onChange={this.inputChangeHandler}
-          onFocus={() => {
-            this.setState({ showSuggestions: true });
-          }}
-        />
+        <div>
+          <input
+            aria-label="search for a city"
+            name="city-search"
+            type="text"
+            className="city"
+            placeholder="search for a city"
+            value={this.state.query}
+            onChange={this.inputChangeHandler}
+            onFocus={() => {
+              this.setState({ showSuggestions: true });
+            }}
+          />
+
+        </div>
+
         <ul
           className="suggestions"
           style={this.state.showSuggestions ? {} : { display: "none" }}
@@ -58,7 +66,7 @@ class CitySearch extends Component {
               {suggestion}
             </li>
           ))}
-          <li key="all" onClick={() => this.itemClickHandler("all")}>
+          <li key="all" onClick={() => this.itemClickHandler("")}>
             <b>See all cities</b>
           </li>
         </ul>
