@@ -36,7 +36,6 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
-
         <InfoAlert text={this.state.infoText} />
         <div>
           <input
@@ -51,7 +50,6 @@ class CitySearch extends Component {
               this.setState({ showSuggestions: true });
             }}
           />
-
         </div>
 
         <ul
@@ -59,11 +57,10 @@ class CitySearch extends Component {
           style={this.state.showSuggestions ? {} : { display: "none" }}
         >
           {this.state.suggestions.map((suggestion) => (
-            <li
-              key={suggestion}
-              onClick={() => this.itemClickHandler(suggestion)}
-            >
-              {suggestion}
+            <li key={suggestion}>
+              <button onClick={() => this.itemClickHandler(suggestion)}>
+                {suggestion}
+              </button>
             </li>
           ))}
           <li key="all" onClick={() => this.itemClickHandler("")}>
