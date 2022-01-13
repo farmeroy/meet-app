@@ -55,19 +55,23 @@ input[type="number"] {
 .CitySearch {
   display: flex;
   flex-direction: column;
-  flex-basis: 300px;
-  max-width: 300px;
+  /* flex-basis: 300px; */
+  /* max-width: 300px; */
   margin: auto;
   position: relative;
 }
 
+.alert {
+  height: 2rem;
+
+}
 .suggestions {
   width: 250px;
   position: absolute;
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 43px;
+  top: 4rem;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
@@ -161,11 +165,6 @@ input[type="number"] {
   grid-gap: 20px;
   padding: 20px;
   font-family: sans-serif;
-}
-
-.Alert {
-  position: fixed;
-  top: 20px;
 }
 
 .data-vis-wrapper {
