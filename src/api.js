@@ -59,11 +59,17 @@ const getToken = async (code) => {
 
 export const getEvents = async () => {
   NProgress.start();
+  if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return data ? JSON.parse(data).events : [];
+  }
+
   if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
     return mockData;
   }
-    
+
   const token = await getAccessToken();
   if (token) {
     removeQuery();
