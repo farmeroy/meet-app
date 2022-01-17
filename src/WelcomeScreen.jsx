@@ -28,7 +28,7 @@ const WelcomeScreen = (props) => {
         </div>
       </div>
       <a
-        href="https://farmeroy.github.io/meet/privacy.html"
+        href="https://farmeroy.github.io/meet-app/privacy.html"
         rel="nofollow noopener"
       >
         Privacy policy
