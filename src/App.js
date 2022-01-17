@@ -37,12 +37,6 @@ class App extends Component {
         isOnline: false,
       });
     }
-
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
-      }
-    });
   }
 
   componentWillUnmount() {
