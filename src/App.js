@@ -18,7 +18,7 @@ class App extends Component {
     showWelcomeScreen: undefined,
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem("access_token");
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
