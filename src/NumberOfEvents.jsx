@@ -3,7 +3,7 @@ import { ErrorAlert } from "./Alert";
 
 class NumberOfEvents extends Component {
   state = {
-    numberInputValue: 16,
+    numberInputValue: 32,
   };
 
   onChangeHandler = (event) => {

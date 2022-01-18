@@ -12,7 +12,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    eventsNumber: 16,
+    eventsNumber: 32,
     selectedLocation: "",
     isOnline: true,
     showWelcomeScreen: undefined,
