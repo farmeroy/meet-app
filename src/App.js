@@ -68,29 +68,43 @@ class App extends Component {
     if (this.state.showWelcomeScreen === undefined) {
       return <div className="App" />;
     }
-    return (
-      <div className="App">
-        <h1 className="title">Meet</h1>
-        <p>
-          Find newbie developer events in your city and meet other learners!
-        </p>
-        {!this.state.isOnline && (
-          <InfoAlert text="You are offline. This event list is loaded from your cache" />
-        )}
-        <CitySearch
-          locations={this.state.locations}
-          updateEvents={this.updateEvents}
-        />
-        <NumberOfEvents updateNumber={this.updateEventsNumber} />
-        <EventList events={this.state.events} />
-        <WelcomeScreen
-          showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => {
-            getAccessToken();
-          }}
-        />
-      </div>
-    );
+    if (this.state.showWelcomeScreen === false) {
+      return (
+        <div className="App">
+          <h1 className="title">Meet</h1>
+          <p>
+            Find newbie developer events in your city and meet other learners!
+          </p>
+          {!this.state.isOnline && (
+            <InfoAlert text="You are offline. This event list is loaded from your cache" />
+          )}
+          <CitySearch
+            locations={this.state.locations}
+            updateEvents={this.updateEvents}
+          />
+          <NumberOfEvents updateNumber={this.updateEventsNumber} />
+          <EventList events={this.state.events} />
+          <WelcomeScreen
+            showWelcomeScreen={this.state.showWelcomeScreen}
+            getAccessToken={() => {
+              getAccessToken();
+            }}
+          />
+        </div>
+      );
+    }
+    if (this.state.showWelcomeScreen === true) {
+      return (
+        <div className="App">
+          <WelcomeScreen
+            showWelcomeScreen={this.state.showWelcomeScreen}
+            getAccessToken={() => {
+              getAccessToken();
+            }}
+          />
+        </div>
+      );
+    }
   }
 }
 
