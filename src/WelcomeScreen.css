@@ -9,10 +9,20 @@
 
 .WelcomeScreen {
   position: fixed;
+  text-align: center;
   width: 100%;
-  height: 100%;
+  margin: auto;
   top: 0;
   background: var(--backgroundColor);
+}
+
+.welcome__title {
+  color: black;
+  font-size: 3rem;
+}
+
+.welcome__subtitle {
+  color: var(--textColor);
 }
 
 .login-button {
@@ -51,7 +61,7 @@
   margin-left: 1px;
   width: 40px;
   height: 40px;
-  border-radius: 2px;
+  border-radius: 8px;
   background-color: #fff;
 }
 
@@ -63,14 +73,24 @@
   height: 18px;
 }
 
-.btn-text {
+.google-btn__btn-text {
   float: right;
-  color: #fff;
+  color: var(--textColor);
   font-size: 14px;
   letter-spacing: 0.2px;
+  border: none;
+  border-radius: 8px;
   font-family: "Roboto";
-  background-color: #4285f4;
+  background-color: var(--buttonColor);
   width: 80%;
   height: 100%;
   text-align: center;
+}
+
+.google-btn__btn-text:hover {
+  cursor: pointer;
+}
+
+.google-btn__btn-text b {
+  color: var(--textColor)
 }
