@@ -1,17 +1,18 @@
 import React from "react";
+import "./WelcomeScreen.css";
 
 const WelcomeScreen = (props) => {
   return props.showWelcomeScreen ? (
     <div className="WelcomeScreen">
-      <h1>Welcome to the Meet app</h1>
-      <h4>
+      <h1 className="welcome__title">Welcome to the Meet app</h1>
+      <h4 className="welcome__subtitle">
         Log in to see upcoming events for full-stack developers around the world
       </h4>
       <div className="button_cont" align="center">
-        <div class="google-btn">
-          <div class="google-icon-wrapper">
+        <div className="google-btn">
+          <div className="google-icon-wrapper">
             <img
-              class="google-icon"
+              className="google-icon"
               src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
               alt="Google sign-in"
             />
@@ -21,7 +22,7 @@ const WelcomeScreen = (props) => {
               props.getAccessToken();
             }}
             rel="nofollow noopener"
-            class="btn-text"
+            className="google-btn__btn-text"
           >
             <b>Sign in with google</b>
           </button>
