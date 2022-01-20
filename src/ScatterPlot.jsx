@@ -23,7 +23,6 @@ class ScatterPlot extends Component {
     return (
       <ResponsiveContainer height={400}>
         <ScatterChart
-          width={400}
           height={400}
           margin={{
             top: 20,
