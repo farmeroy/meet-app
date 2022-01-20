@@ -21,18 +21,26 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
-    const accessToken = localStorage.getItem("access_token");
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if (code || (isTokenValid && this.mounted)) {
-      getEvents().then((events) => {
-        if (this.mounted) {
-          this.setState({ events, locations: extractLocations(events) });
-        }
-      });
-    }
+    // for testing
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
+    });
+    // for live version
+    // const accessToken = localStorage.getItem("access_token");
+    // const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    // const searchParams = new URLSearchParams(window.location.search);
+    // const code = searchParams.get("code");
+    // this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    // if (code || (isTokenValid && this.mounted)) {
+    //   getEvents().then((events) => {
+    //     if (this.mounted) {
+    //       this.setState({ events, locations: extractLocations(events) });
+    //     }
+    //   });
+    // }
+    //
     if (!navigator.onLine) {
       this.setState({
         isOnline: false,
@@ -79,10 +87,10 @@ class App extends Component {
   };
 
   render() {
-    if (this.state.showWelcomeScreen === undefined) {
-      return <div className="App" />;
-    }
-    if (this.state.showWelcomeScreen === true) {
+    // if (this.state.showWelcomeScreen === undefined) {
+    //   return <div className="App" />;
+    // }
+    if (this.state.showWelcomeScreen !== true) {
       return (
         <div className="App">
           <h1 className="title">Meet</h1>
@@ -97,23 +105,25 @@ class App extends Component {
             updateEvents={this.updateEvents}
           />
           <NumberOfEvents updateNumber={this.updateEventsNumber} />
-          <ScatterPlot data={this.getData()} />
+          <div className="data-container">
+            <ScatterPlot getData={this.getData} />
+          </div>
           <EventList events={this.state.events} />
         </div>
       );
     }
-    // if (this.state.showWelcomeScreen === true) {
-    //   return (
-    //     <div className="App">
-    //       <WelcomeScreen
-    //         showWelcomeScreen={this.state.showWelcomeScreen}
-    //         getAccessToken={() => {
-    //           getAccessToken();
-    //         }}
-    //       />
-    //     </div>
-    //   );
-    // }
+    if (this.state.showWelcomeScreen === true) {
+      return (
+        <div className="App">
+          <WelcomeScreen
+            showWelcomeScreen={this.state.showWelcomeScreen}
+            getAccessToken={() => {
+              getAccessToken();
+            }}
+          />
+        </div>
+      );
+    }
   }
 }
 
