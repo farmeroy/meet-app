@@ -39,6 +39,7 @@ p {
   border-radius: 12px;
   margin: auto;
   width: 90%;
+  display: flex;
 }
 .showSuggestions {
   display: block;
