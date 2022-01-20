@@ -7,6 +7,7 @@ import NumberOfEvents from "./NumberOfEvents";
 import WelcomeScreen from "./WelcomeScreen";
 import { InfoAlert } from "./Alert";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
+import ScatterPlot from "./ScatterPlot.jsx";
 
 class App extends Component {
   state = {
@@ -81,7 +82,7 @@ class App extends Component {
     if (this.state.showWelcomeScreen === undefined) {
       return <div className="App" />;
     }
-    if (this.state.showWelcomeScreen === false) {
+    if (this.state.showWelcomeScreen === true) {
       return (
         <div className="App">
           <h1 className="title">Meet</h1>
@@ -96,28 +97,23 @@ class App extends Component {
             updateEvents={this.updateEvents}
           />
           <NumberOfEvents updateNumber={this.updateEventsNumber} />
+          <ScatterPlot data={this.getData()} />
           <EventList events={this.state.events} />
-          <WelcomeScreen
-            showWelcomeScreen={this.state.showWelcomeScreen}
-            getAccessToken={() => {
-              getAccessToken();
-            }}
-          />
         </div>
       );
     }
-    if (this.state.showWelcomeScreen === true) {
-      return (
-        <div className="App">
-          <WelcomeScreen
-            showWelcomeScreen={this.state.showWelcomeScreen}
-            getAccessToken={() => {
-              getAccessToken();
-            }}
-          />
-        </div>
-      );
-    }
+    // if (this.state.showWelcomeScreen === true) {
+    //   return (
+    //     <div className="App">
+    //       <WelcomeScreen
+    //         showWelcomeScreen={this.state.showWelcomeScreen}
+    //         getAccessToken={() => {
+    //           getAccessToken();
+    //         }}
+    //       />
+    //     </div>
+    //   );
+    // }
   }
 }
 
