@@ -43,6 +43,19 @@ class App extends Component {
     this.mounted = false;
   }
 
+  // extract data for the ScatterPlot
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter(
+        (event) => event.location === location
+      ).length;
+      const city = location.split(", ").shift();
+      return { city, number };
+    });
+    return data;
+  };
+
   updateEvents = (location, eventsNumber = this.state.eventsNumber) => {
     this.setState({ isOnline: navigator.onLine ? true : false });
     getEvents().then((events) => {
