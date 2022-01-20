@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import {
   ScatterChart,
   Scatter,
@@ -9,13 +9,19 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-class ScatterPlot extends PureComponent {
+class ScatterPlot extends Component {
+  state = {
+    data: [],
+  };
 
-  data = this.props.data;
-
+  componentDidMount() {
+    this.setState({
+      data: this.props.getData(),
+    });
+  }
   render() {
     return (
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer height={400}>
         <ScatterChart
           width={400}
           height={400}
@@ -27,10 +33,10 @@ class ScatterPlot extends PureComponent {
           }}
         >
           <CartesianGrid />
-          <XAxis type="number" dataKey="x" name="stature" unit="cm" />
-          <YAxis type="number" dataKey="y" name="weight" unit="kg" />
+          <XAxis type="category" dataKey="city" name="city" />
+          <YAxis type="number" dataKey="number" name="number of events" />
           <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-          <Scatter name="A school" data={this.data} fill="#8884d8" />
+          <Scatter data={this.props.getData()} fill="#8884d8" />
         </ScatterChart>
       </ResponsiveContainer>
     );
