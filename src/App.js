@@ -8,6 +8,7 @@ import WelcomeScreen from "./WelcomeScreen";
 import { InfoAlert } from "./Alert";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
 import ScatterPlot from "./ScatterPlot.jsx";
+import GenrePieChart from './GenrePieChart';
 
 class App extends Component {
   state = {
@@ -107,6 +108,7 @@ class App extends Component {
           <NumberOfEvents updateNumber={this.updateEventsNumber} />
           <div className="data-container">
             <ScatterPlot getData={this.getData} />
+            <GenrePieChart />
           </div>
           <EventList events={this.state.events} />
         </div>
