@@ -32,6 +32,11 @@ p {
 .display-none {
   display: none;
 }
+
+.data-container {
+  /* height: 50vh; */
+  /* width: 100%; */
+}
 .showSuggestions {
   display: block;
 }
