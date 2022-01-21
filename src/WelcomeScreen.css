@@ -1,11 +1,11 @@
 
-:root {
-  --backgroundColor: #6998AB;
-  --textColor: #1A374D;
-  --buttonColor:  #B1D0E0;
-  --titleColor: #1A374D;
-  --cardColor: #ECF4F3;
-}
+/* :root { */
+/*   --titleColor: #6998AB; */
+/*   --textColor: #1A374D; */
+/*   --buttonColor:  #B1D0E0; */
+/*   --backgroundColor: #1A374D; */
+/*   --cardColor: #ECF4F3; */
+/* } */
 
 .WelcomeScreen {
   position: fixed;

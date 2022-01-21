@@ -34,8 +34,14 @@ p {
 }
 
 .data-container {
-  /* height: 50vh; */
-  /* width: 100%; */
+  background-color: var(--cardColor);
+  padding: 1rem;
+  border-radius: 12px;
+  margin: auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 .showSuggestions {
   display: block;
