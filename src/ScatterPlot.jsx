@@ -21,7 +21,7 @@ class ScatterPlot extends Component {
   }
   render() {
     return (
-      <ResponsiveContainer height={400}>
+      <ResponsiveContainer height={400} width={400}>
         <ScatterChart
           height={400}
           margin={{
