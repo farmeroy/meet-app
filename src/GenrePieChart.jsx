@@ -1,18 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-
+import React, { useEffect, useState } from "react";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 const GenrePieChart = (props) => {
-  const {events} = props;
-   const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 }
-];
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+
+  const events = props.events;
+  const [data, setData] = useState([]);
+
+  const getData = (events) => {
+    const genres = ["React", "JavaScript", "Node", "jQuery", "AngularJS"];
+    const data = genres.map((genre) => {
+      let value = 0;
+      for (const event of events) {
+        if (event.summary.split(" ").includes(genre)) {
+          value += 1;
+        }
+      }
+      return { name: genre, value };
+    });
+  return data;
+  };
+
+  useEffect(() => {
+    setData(getData(events))
+  }, [events])
+
+  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
   return (
-  <PieChart width={400} height={400}>
+    <PieChart width={400} height={400}>
       <Pie
         data={data}
         cx={200}
@@ -28,8 +42,7 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
         ))}
       </Pie>
     </PieChart>
-  )
+  );
 };
 
 export default GenrePieChart;
-
