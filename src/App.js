@@ -108,7 +108,7 @@ class App extends Component {
           <NumberOfEvents updateNumber={this.updateEventsNumber} />
           <div className="data-container">
             <ScatterPlot getData={this.getData} />
-            <GenrePieChart />
+            <GenrePieChart events={this.state.events}/>
           </div>
           <EventList events={this.state.events} />
         </div>
