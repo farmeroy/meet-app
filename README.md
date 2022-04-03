@@ -1,7 +1,8 @@
 <h1>Meet App</h1>
 An app that allows a user to look for events in a city.
 View the live deployment here: https://farmeroy.github.io/meet-app/
-![meet app screenshot](https://github.com/farmeroy/portfolio2.0/blob/main/public/meet-app.gif)
+
+> ![meet app screenshot](https://github.com/farmeroy/portfolio2.0/blob/main/public/meet-app.gif)
 
 <h3>Feature 1: Filter Events by City</h3>
 
